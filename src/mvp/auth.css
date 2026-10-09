@@ -1,0 +1,82 @@
+.auth-shell {
+  min-height: 100vh;
+  background: var(--mvp-bg, #f7f6f2);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+  gap: 34px;
+}
+.auth-logo {
+  color: var(--mvp-ink, #183e36);
+  text-decoration: none;
+}
+.auth-card {
+  width: min(100%, 410px);
+  background: #fff;
+  border: 1px solid #dfdfd8;
+  border-radius: 20px;
+  padding: 30px;
+  display: grid;
+  gap: 20px;
+  box-shadow: 0 12px 40px #193e3608;
+}
+.auth-card h1 {
+  font-size: 26px;
+  letter-spacing: -0.7px;
+  margin: 0 0 4px;
+  color: #193e36;
+}
+.auth-card .mvp-field {
+  margin: 0;
+}
+.auth-card input,
+.auth-card select {
+  width: 100%;
+  min-height: 44px;
+}
+.auth-links {
+  display: flex;
+  justify-content: space-between;
+  gap: 14px;
+  font-size: 13px;
+}
+.auth-links a {
+  color: #193e36;
+}
+.auth-notice {
+  background: #eef5f0;
+  color: #193e36;
+  padding: 13px;
+  border-radius: 10px;
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.5;
+}
+.auth-config-error {
+  max-width: 620px;
+  text-align: center;
+  padding: 32px;
+  line-height: 1.6;
+}
+.mvp-account-menu {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.mvp-account-menu span {
+  max-width: 180px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 13px;
+}
+@media (max-width: 600px) {
+  .auth-card {
+    padding: 24px;
+  }
+  .mvp-account-menu span {
+    display: none;
+  }
+}

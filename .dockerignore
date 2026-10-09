@@ -1,0 +1,15 @@
+.git
+node_modules
+**/node_modules
+.env
+.env.*
+**/.env
+**/.env.*
+!.env.example
+dist
+.vercel
+test-results
+playwright-report
+**/.data
+**/test-output
+docs/screenshots

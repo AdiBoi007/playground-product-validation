@@ -1,29 +1,46 @@
 {
-  "name": "playground-validation",
+  "name": "playground-human-testing",
   "private": true,
-  "version": "1.0.0",
+  "version": "2.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite --host 0.0.0.0",
-    "build": "tsc -b && vite build && node scripts/build-offline.mjs",
+    "dev": "node scripts/dev.mjs",
+    "dev:ui": "vite --host 127.0.0.1",
+    "dev:worker": "node scripts/worker.mjs",
+    "setup": "node scripts/setup.mjs",
+    "worker:install": "npm --prefix services/market-twin ci && npm --prefix services/market-twin exec -- playwright install chromium",
+    "build": "tsc -b && tsc -p tsconfig.api.json && vite build && node scripts/build-offline.mjs",
     "preview": "vite preview --host 0.0.0.0",
     "lint": "eslint .",
     "test": "vitest run",
-    "test:demo": "node scripts/reliability.mjs",
-    "format": "prettier --write src scripts *.json *.ts *.js *.html README.md",
-    "test:offline": "node scripts/offline-smoke.mjs",
-    "test:intelligence": "node scripts/intelligence-smoke.mjs"
+    "test:demo": "node scripts/mvp-smoke.mjs",
+    "format": "prettier --write src api scripts *.json *.ts *.js *.html README.md docs/MVP_SETUP.md",
+    "test:flow": "node scripts/mvp-smoke.mjs",
+    "test:research": "node scripts/sandbox-smoke.mjs",
+    "test:sandbox": "node scripts/sandbox-smoke.mjs",
+    "test:validation": "node scripts/validation-smoke.mjs",
+    "test:twin": "npm --prefix services/market-twin test",
+    "test:twin:browser": "npm --prefix services/market-twin run test:browser"
   },
   "dependencies": {
+    "@pdf-lib/fontkit": "^1.1.1",
+    "@supabase/supabase-js": "^2.117.3",
+    "docx": "^9.9.0",
+    "exceljs": "^4.4.0",
+    "htmlparser2": "^12.0.0",
     "lucide-react": "^0.468.0",
-    "motion": "^12.23.24",
+    "pdf-lib": "^1.17.1",
+    "pdfjs-dist": "^6.4.299",
+    "pptxgenjs": "^4.0.0",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
-    "react-router-dom": "^7.9.1"
+    "react-router-dom": "^7.9.1",
+    "stripe": "^23.0.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.36.0",
     "@playwright/test": "^1.55.1",
+    "@types/node": "^26.6.4",
     "@types/react": "^19.1.16",
     "@types/react-dom": "^19.1.9",
     "@vitejs/plugin-react": "^5.0.3",
@@ -36,5 +53,11 @@
     "typescript-eslint": "^8.44.1",
     "vite": "^7.1.7",
     "vitest": "^5.0.3"
+  },
+  "overrides": {
+    "image-size": "^2.0.3",
+    "exceljs": {
+      "uuid": "^11.1.1"
+    }
   }
 }

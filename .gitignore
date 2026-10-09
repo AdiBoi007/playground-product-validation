@@ -7,3 +7,8 @@ playwright-report/
 *.tsbuildinfo
 .vercel/
 .vercel
+.env
+.env.*
+!.env.example
+.data/
+services/market-twin/.data/

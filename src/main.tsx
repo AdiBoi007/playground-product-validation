@@ -2,8 +2,7 @@ import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
 import App from "./App";
-import "./styles.css";
-import "./workspace.css";
+import "./mvp/mvp.css";
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <BrowserRouter>
@@ -14,7 +13,7 @@ createRoot(document.getElementById("root")!).render(
 if (import.meta.env.PROD && "serviceWorker" in navigator) {
   window.addEventListener("load", () => {
     void navigator.serviceWorker.register("/sw.js").catch(() => {
-      /* Local demo still works when caching is unavailable. */
+      /* The shell remains available when browser caching is unavailable. */
     });
   });
 }
